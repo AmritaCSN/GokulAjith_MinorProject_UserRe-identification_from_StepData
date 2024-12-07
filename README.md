@@ -3,7 +3,7 @@ This repository contains the Python codes of data preprocessing, RNN algorithms,
 # OVERVIEW
 The widespread use of fitness bands and smartwatches has led to the extensive collection of personal physiological data, integrating activity tracking into the daily lives of many individuals. While this data offers valuable health insights, it also raises significant privacy concerns. This project highlights that anonymization techniques relying solely on unique IDs are inadequate, as a person's time-series step data over a given period can reveal behavioral patterns and enable precise identification. To explore this, a binary list was generated from step data collected through the iPhone Health app, aggregated over two intervals—15 minutes and 1 hour—across two training durations of 33 months and 21 months. Each user was then evaluated individually on trained RNN models, demonstrating the feasibility of re-identification based on step data. This project focuses on showing that the minimal binary representation of users' step-data over a certain period is enough to re-identify the user and an attempt to analyze the feasibility of using a less complex average hamming code distance technique.
 
-# Datasets
+# DATASETS
 
 From the rawdata collected from the iPhone Health app, 4 datasets were created by using a specific data pre-processing methodology. The 4 datasets with specific characteristics are :
  1. **Dataset I**
@@ -23,7 +23,7 @@ From the rawdata collected from the iPhone Health app, 4 datasets were created b
    - **Threshold:** Yes
      
 Each dataset contains all 32 users' complete available data. The threshold refers to a value to filter the step counts during the aggregation of available step data on the chosen respective intervals of 1hr and 15min. The threshold used here is 25. The original dataset for the 15-minute interval consists of 36,485 rows and 108 columns (36,485 × 108), whereas for the 1-hour interval, the number of columns is reduced to 35. The columns represent the year, month, and day of the week in one-hot encoded format, along with the binary step data for the respective interval (either 15 minutes or 1 hour) in a day. The rows correspond to each user's data on a particular day, and the label column indicates the user label, ranging from 0 to 31.
-# Softwares/Libraries 
+# SOFTWARES/LIBRARIES
 
 1. **Google Collab**
    The data pre-processing was done using Google Collab. The complete raw dataset was uploaded into Google Drive and used for preprocessing from fetching from the drive.The methodology of datapreprocessing is 
@@ -74,7 +74,9 @@ Pivot is a function in the Pandas library. Used for straightforward reshaping. I
 
 The **hamming** function is imported from the **scipy.spatial.distance** module. This function calculates the **Hamming distance** between two sequences (or arrays). The **Hamming distance** measures how many positions in two sequences (strings, arrays, etc.) are different. This function is part of **SciPy**, a scientific computing library in Python, which provides a wide range of mathematical functions, including distance calculations.
 
-
-# References
+# FILE STRUCTURE
+The output of the Data preprocessor which is 4 datasets as mentioned above is fed to the RNN model file for user re-identification. The same file is also fed to experiment with the Average Hamming distance file.
+ ![Methodology](https://github.com/AmritaCSN/GokulAjith_MinorProject_UserRe-identification_from_StepData/blob/main/FILE%20STRUCTURE.png)
+# REFERENCES
 
 1.https://keras.io/keras_tuner/
